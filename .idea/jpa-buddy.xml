@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaBuddyIdeaProjectConfig">
+    <option name="defaultUnitInitialized" value="true" />
+    <option name="renamerInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="5bcfc59b-d456-4489-9b28-9d51fd9be935__demo_db_vanya_public" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/ru/flanker/domain" />
+  </component>
+</project>
