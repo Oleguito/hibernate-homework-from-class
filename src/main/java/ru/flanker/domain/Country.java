@@ -3,18 +3,21 @@ package ru.flanker.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 /**
  * @author 1ommy
  * @version 07.01.2024
  */
 
 @Entity
-//@Table(name = "country")
+@Table(name = "country")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 public class Country {
     @Id
 //    @SequenceGenerator(name = "county_seq",
@@ -75,6 +78,11 @@ public class Country {
     private String title;
 
     private Integer population;
+
+    @OneToMany(mappedBy = "country", fetch = FetchType.LAZY)
+    @ToString.Exclude
+//    @JoinColumn(name = "country_id")
+    private Set<User> users;
 
 
 //    private Integer amountOfMoney;

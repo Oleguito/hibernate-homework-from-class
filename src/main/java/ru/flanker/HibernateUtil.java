@@ -3,7 +3,10 @@ package ru.flanker;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import ru.flanker.domain.Advertisement;
 import ru.flanker.domain.Country;
+import ru.flanker.domain.Languages;
+import ru.flanker.domain.User;
 
 /**
  * @author 1ommy
@@ -16,6 +19,9 @@ public class HibernateUtil {
         if (sessionFactory == null) {
             sessionFactory = new Configuration()
                     .addAnnotatedClass(Country.class)
+                    .addAnnotatedClass(User.class)
+                    .addAnnotatedClass(Advertisement.class)
+                    .addAnnotatedClass(Languages.class)
                     .configure().buildSessionFactory();
         }
         return sessionFactory;
