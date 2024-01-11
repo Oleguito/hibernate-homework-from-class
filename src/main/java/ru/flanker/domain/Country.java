@@ -2,6 +2,8 @@ package ru.flanker.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.util.Set;
 
@@ -79,7 +81,8 @@ public class Country {
 
     private Integer population;
 
-    @OneToMany(mappedBy = "country", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "country")
+    // @Fetch(FetchMode.JOIN)
     @ToString.Exclude
 //    @JoinColumn(name = "country_id")
     private Set<User> users;

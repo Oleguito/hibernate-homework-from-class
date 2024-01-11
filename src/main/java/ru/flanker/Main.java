@@ -4,6 +4,8 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import ru.flanker.domain.User;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author 1ommy
@@ -40,7 +42,7 @@ public class Main {
             session.persist(user);*/
 
 //            session.remove(session.get(Country.class, 1));
-            CriteriaBuilder cb = session.getCriteriaBuilder();
+//             CriteriaBuilder cb = session.getCriteriaBuilder();
 
             /*Country country = session.get(Country.class, 2);
 
@@ -66,12 +68,17 @@ public class Main {
 
 //            User user = session.get(User.class, 1);
 //            System.out.println(user);
+// List<User>
+            Logger logger = Logger.getLogger("org.hibernate");
+            logger.setLevel(Level.SEVERE);
+            
+            List<User> list = session.createQuery("from User u join fetch u.country", User.class).getResultList();
 
-            List<User> list = session.createQuery("from User u join Country c on c.id=u.country.id")
-                    .list();
-            list.stream().forEach((user -> {
-                System.out.println(user.getCountry().getTitle());
-            }));
+            System.out.println("");
+                    //.list();
+            // list.stream().forEach((user -> {
+            //     System.out.println(user.getCountry().getTitle());
+            // }));
 
             session.getTransaction().commit();
         }
